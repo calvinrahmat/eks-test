@@ -40,7 +40,7 @@ metadata:
   namespace: flux-system
 spec:
   suspend: false
-  schedule: 0 */6 * * *
+  schedule: */6 * * * *
   failedJobsHistoryLimit: 1
   successfulJobsHistoryLimit: 1
   jobTemplate:
@@ -59,7 +59,7 @@ spec:
             imagePullPolicy: IfNotPresent
             env:
             - name: REGION
-              value: ap-southeast-1 # change this if ECR repo is in a different region
+              value: us-east-1 # change this if ECR repo is in a different region
             volumeMounts:
             - mountPath: /token
               name: token
@@ -75,7 +75,7 @@ spec:
             - name: SECRET_NAME
               value: ecr-credentials
             - name: ECR_REGISTRY
-              value: 857900057298.dkr.ecr.ap-southeast-1.amazonaws.com
+              value: 857900057298.dkr.ecr.us-east-1.amazonaws.com
             volumeMounts:
             - mountPath: /token
               name: token
