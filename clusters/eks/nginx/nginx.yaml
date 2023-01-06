@@ -19,7 +19,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: 857900057298.dkr.ecr.us-east-1.amazonaws.com/nginx
+      - image: 857900057298.dkr.ecr.us-east-1.amazonaws.com/nginx # {"$imagepolicy": "flux-system:nginx"}
         name: nginx
         ports:
         - containerPort: 80
