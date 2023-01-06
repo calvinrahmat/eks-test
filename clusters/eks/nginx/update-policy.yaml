@@ -1,4 +1,3 @@
----
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
@@ -6,14 +5,17 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
   git:
     checkout:
-      branch: main
-      gitRepositoryRef:
-        name: flux-system
+      ref:
+        branch: main
     commit:
-      authorEmail: calvin@btech.id
-      authorName: fluxcdbot
+      author:
+        email: calvin@btech.id
+        name: fluxcdbot
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
       branch: main
